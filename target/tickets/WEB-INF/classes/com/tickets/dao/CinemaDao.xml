@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tickets.dao.CinemaDao">
+    <!--查询总记录数-->
+    <select id="findTotalCount" parameterType="Cinema" resultType="java.lang.Integer">
+        select
+        count(cid)
+        from
+        cinema
+        <where>
+            <if test="name != null and name != ''">
+                name like '%${name}%'
+            </if>
+        </where>
+    </select>
+
+    <!--查询一页的电影院-->
+    <select id="findCinemaByPage" parameterType="java.util.Map" resultType="Cinema">
+        select
+        c.cid,
+        c.name,
+        c.address
+        from
+        cinema c
+        <where>
+            <if test="cinema.name != null and cinema.name != ''">
+                c.name like '%${cinema.name}%'
+            </if>
+        </where>
+        limit
+        #{start}, #{pageCount}
+    </select>
+
+    <!--根据影院名查询影院是否存在-->
+    <select id="selectByName" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(cid) from cinema where name = #{name}
+    </select>
+
+    <!--添加影院-->
+    <insert id="cinemaAdd" parameterType="Cinema">
+        insert into
+         cinema(name, address, createTime, updateTime)
+        values(#{name}, #{address}, NOW(), NOW())
+    </insert>
+
+    <!--删除影院-->
+    <delete id="cinemaDel" parameterType="java.lang.Integer">
+        delete from cinema where cid = #{cid}
+    </delete>
+
+    <!--查询所有的电影院-->
+    <select id="findAllCinemas" resultType="Cinema">
+        select
+          cid,
+          name
+        from
+          cinema
+    </select>
+
+    <!--根据id查找电影-->
+    <!--<select id="findByIdForUpdate" parameterType="java.lang.Integer" resultType="Movie">
+        select
+        m.mid,
+        m.name,
+        m.director,
+        m.actor,
+        m.type,
+        m.time,
+        m.remark,
+        m.createTime
+        from
+        movie m
+        where
+        m.mid = #{mid}
+    </select>
+
+    &lt;!&ndash;更新电影&ndash;&gt;
+    <update id="movieUpdate" parameterType="Movie">
+        update
+        movie
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="director != null and director != ''">
+                director = #{director},
+            </if>
+            <if test="actor != null and actor != ''">
+                actor = #{actor},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="time != null and time != ''">
+                time = #{time},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                createTime = #{createTime},
+            </if>
+            updateTime = NOW()
+        </set>
+        where
+        mid = #{mid}
+    </update>-->
+</mapper>

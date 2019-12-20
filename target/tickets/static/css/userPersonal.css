@@ -1,0 +1,82 @@
+.user_form, .user_info{
+    margin-left: 300px;
+}
+
+
+.add_btn input{
+    border: 1px solid #666;
+    background-color: #fff;
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: 180px;
+}
+.add_btn input:hover{
+    opacity: 0.8;
+    background-color: #E0ECFF;
+    transition: .3s;
+}
+
+/*充值*/
+#winRecharge{
+    padding: 10px 20px;
+}
+
+#winRecharge div{
+    margin:10px auto ;
+}
+#winRecharge div span{
+    font-size: 18px;
+    font-weight: 500;
+}
+#winRecharge form{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+
+}
+#winRecharge form .amount{
+    display: flex;
+    justify-content: space-between;
+}
+#winRecharge form .amount input{
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+
+}
+.checkMoney{
+    text-align: center;
+    cursor: pointer;
+}
+#winRecharge form .amount input[placeholder="自定义"]{
+    padding:0 5px;
+
+}
+#winRecharge form .amount input:focus,#winRecharge form input[type='submit']:focus{
+    outline: none;
+    border: 1px solid #409EFF;
+}
+
+#winRecharge form input[type='submit']{
+    margin-top:30px;
+    width: 100px;
+    height:40px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]{
+    -moz-appearance: textfield;
+}

@@ -1,0 +1,117 @@
+body {
+    background: url("../../static/images/background.jpg") no-repeat;
+    background-size: cover;
+}
+
+p {
+    color: #03346A;
+    font-size: 26px;
+    text-align: center;
+}
+
+.content {
+    width: 300px;
+    height: 380px;
+    margin: auto;
+    margin-top: 170px;
+    background: #CCCED2;
+    border: 7px solid #CAE0F3;
+    border-radius: 10px;
+}
+
+.split {
+    width: 260px;
+    border-top: 3px solid #4F7EB4;
+    margin-left: 20px;
+}
+
+label {
+    color: darkblue;
+}
+
+#password, #loginUsername {
+    width: 165px;
+    height: 26px;
+    border: 2px solid #4F7EB4;
+}
+
+#checkCode {
+    width: 80px;
+    height: 26px;
+    border: 2px solid #4F7EB4;
+}
+
+tr {
+    height: 50px;
+}
+
+.forgetPassword {
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.check {
+    font-size: 12px;
+}
+
+#vcode {
+    display: inline-block;
+    width: 80px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.bottom {
+    width: 250px;
+    height: 80px;
+    text-align: center;
+}
+
+.error_msg {
+    color: red;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#sub {
+    width: 100px;
+    height: 30px;
+    color: white;
+    background: #426F99;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    border: 1px solid #426F99;
+}
+
+.resetPassword {
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.textbox {
+    width: 200px;
+    height: 26px;
+    padding: 10px
+}
+
+.hrLine{
+    width: 200px;
+    height: 10px;
+}
+
+.register {
+    width: 300px;
+    margin: 52px auto;
+}
+
+.btn {
+    text-align: center;
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    line-height: 80px;
+}

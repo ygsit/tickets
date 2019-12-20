@@ -1,0 +1,63 @@
+td, tr {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.form-inline{
+    float: left
+}
+
+#span_page{
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+/*添加电影*/
+#winRegister .register form#registerForm{
+    margin: 30px auto;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+#winRegister .register form#registerForm .add_btn input{
+    border: 1px solid #666;
+    background-color: #fff;
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+#winRegister .register form#registerForm .add_btn input:hover{
+    opacity: 0.8;
+    background-color: #E0ECFF;
+    transition: .3s;
+}
+
+/*修改电影*/
+#winUpdate .register form#updateForm{
+    margin: 30px auto;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+#winUpdate .register form#updateForm .add_btn input{
+    border: 1px solid #666;
+    background-color: #fff;
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+#winUpdate .register form#updateForm .add_btn input:hover{
+    opacity: 0.8;
+    background-color: #E0ECFF;
+    transition: .3s;
+}

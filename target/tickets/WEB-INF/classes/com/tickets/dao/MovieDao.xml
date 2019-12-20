@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tickets.dao.MovieDao">
+    <!--查询总记录数-->
+    <select id="findTotalCount" parameterType="Movie" resultType="java.lang.Integer">
+        select
+        count(mid)
+        from
+        movie
+        <where>
+            <if test="name != null and name != ''">
+                name like '%${name}%'
+            </if>
+        </where>
+    </select>
+
+    <!--查询一页的电影-->
+    <select id="findMovieByPage" parameterType="java.util.Map" resultType="Movie">
+        select
+        m.mid,
+        m.name,
+        m.director,
+        m.actor,
+        m.type,
+        m.time,
+        m.remark,
+        m.createTime
+        from
+        movie m
+        <where>
+            <if test="movie.name != null and movie.name != ''">
+                m.name like '%${movie.name}%'
+            </if>
+        </where>
+        limit
+        #{start}, #{pageCount}
+    </select>
+
+    <!--添加电影-->
+    <insert id="movieAdd" parameterType="Movie">
+        insert into
+         movie(name, director, actor, type, time, remark, createTime, updateTime)
+        values(#{name}, #{director}, #{actor}, #{type}, #{time}, #{remark}, #{createTime}, NOW())
+
+    </insert>
+
+    <!--删除电影-->
+    <delete id="movieDel" parameterType="java.lang.Integer">
+        delete from movie where mid = #{mid}
+    </delete>
+
+    <!--根据id查找电影-->
+    <select id="findByIdForUpdate" parameterType="java.lang.Integer" resultType="Movie">
+        select
+        m.mid,
+        m.name,
+        m.director,
+        m.actor,
+        m.type,
+        m.time,
+        m.remark,
+        m.createTime
+        from
+        movie m
+        where
+        m.mid = #{mid}
+    </select>
+
+    <!--更新电影-->
+    <update id="movieUpdate" parameterType="Movie">
+        update
+          movie
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="director != null and director != ''">
+                director = #{director},
+            </if>
+            <if test="actor != null and actor != ''">
+                actor = #{actor},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="time != null and time != ''">
+                time = #{time},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                createTime = #{createTime},
+            </if>
+            updateTime = NOW()
+        </set>
+        where
+        mid = #{mid}
+    </update>
+</mapper>
