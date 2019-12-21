@@ -13,9 +13,6 @@ function showAddHall() {
         for(var i = 0; i < result.length; i++){
             $('.change_cinema select').append($('<option  value="'+result[i].cid+'">'+result[i].name+'</option>'))
         }
-        // for(var i  in  result){
-        //     $('.change_cinema select').append($('<option  value="'+result.cid[i]+'">'+result.name[i]+'</option>'))
-        // }
     })
 
 }
@@ -24,8 +21,7 @@ function showAddHall() {
 function checkHallName() {
     var hallName = $(".hallName").val();
     var cinemaId = $(".cinemaId").val();
-    console.log(cinemaId)
-    $.post($("#PageContext").val()+"/hall/checkHallName",{"name": hallName, "cinemaId": cinemaId}, function () {
-
+    $.post($("#PageContext").val()+"/hall/checkHallName",{"name": hallName, "cinemaId": cinemaId}, function (result) {
+        console.log(result)
     })
 }
