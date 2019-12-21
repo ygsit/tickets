@@ -13,6 +13,8 @@ td, tr {
 }
 
 
+
+
 #winRegister .register form#registerForm{
     margin: 60px auto 30px;
     width: 100%;
@@ -38,18 +40,22 @@ td, tr {
     transition: .3s;
 }
 
-#myModal .modal-body{
+#myModal .modal-body,#add_cinema .modal-body{
     box-sizing: border-box;
     padding: 40px;
 }
 
-#myModal .modal-dialog{
+#myModal .modal-dialog,#add_cinema .modal-dialog{
     margin-top: 180px!important;
 }
 .form-group label{
     /*text-align: center;*/
     height: 34px;
     line-height: 34px;
+}
+.form-group span{
+    color: #F56C6C;
+    font-size: 14px;
 }
 .form-group select,.form-group input{
     height: 34px;
@@ -76,8 +82,14 @@ td, tr {
 .form-group select::placeholder,.form-group input::placeholder{
    color:#999
 }
-.add_to_movie_hell input{
+.add_to_movie_hell input,.add_btn input{
    position: relative;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.add_to_movie_hell input:hover,.add_btn input:hover{
+    opacity: 0.8;
+    background-color: #E0ECFF;
+    transition: .3s;
 }
