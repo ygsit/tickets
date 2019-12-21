@@ -129,3 +129,9 @@ function addMovieHell() {
         return  false
     }
 }
+
+
+//影厅管理按钮的点击事件
+function show_view_hall(event) {
+    console.log(event)
+}

@@ -93,3 +93,8 @@ td, tr {
     background-color: #E0ECFF;
     transition: .3s;
 }
+
+/*影厅管理*/
+#view_hall .modal-dialog{
+    width: 1000px;
+}
