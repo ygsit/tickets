@@ -1,0 +1,13 @@
+td, tr {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.form-inline{
+    float: left
+}
+
+#span_page{
+    font-size: 25px;
+    margin-left: 5px;
+}

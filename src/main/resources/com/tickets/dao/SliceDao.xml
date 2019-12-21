@@ -3,5 +3,42 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tickets.dao.SliceDao">
+    <!--查询总记录数-->
+    <select id="findTotalCount" parameterType="Slice" resultType="java.lang.Integer">
+        select
+          count(sid)
+        from
+        slice
+        <where>
+            <if test="cname != null and cname != ''">
+                cname like '%${cname}%'
+            </if>
+            <if test="mname != null and mname != ''">
+                and mname like '%${mname}%'
+            </if>
+        </where>
+    </select>
 
+    <!--查询一页的电影-->
+    <select id="findSliceByPage" parameterType="java.util.Map" resultType="Slice">
+        select
+        s.sid,
+        s.cname,
+        s.hname,
+        s.mname,
+        s.price,
+        s.playTime
+        from
+        slice s
+        <where>
+            <if test="slice.cname != null and slice.cname != ''">
+                s.cname like '%${slice.cname}%'
+            </if>
+            <if test="slice.mname != null and slice.mname != ''">
+                and s.mname like '%${slice.mname}%'
+            </if>
+        </where>
+        limit
+        #{start}, #{pageCount}
+    </select>
 </mapper>

@@ -48,6 +48,7 @@
                         <li><a href="${pageContext.request.contextPath}/user/findAllByPage">用户管理</a></li>
                         <li><a href="${pageContext.request.contextPath}/movie/findMovieByPage" class="changeColor">电影管理</a></li>
                         <li><a href="${pageContext.request.contextPath}/cinema/findCinemaByPage">影院管理</a></li>
+                        <li><a href="${pageContext.request.contextPath}/slice/findSliceByPage">影片排期管理</a></li>
                         <li><a href="">订单管理</a></li>
                         <li><a href="${pageContext.request.contextPath}/user/userPersonal?uid=${uid}">个人中心</a></li>
                         <li><a href="">我的订单</a></li>
