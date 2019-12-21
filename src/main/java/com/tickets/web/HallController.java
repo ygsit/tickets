@@ -1,5 +1,6 @@
 package com.tickets.web;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tickets.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,9 @@ public class HallController {
         try {
             System.out.println(cinemaId);
             Integer result = hallService.checkHallName(name, cinemaId);
+            String json = JSONObject.toJSONString(result);
             response.setContentType("application/json;charset=utf-8");
-            response.getWriter().write(result);
+            response.getWriter().write(json);
         } catch (IOException e) {
             e.printStackTrace();
         }
