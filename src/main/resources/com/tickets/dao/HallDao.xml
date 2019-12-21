@@ -18,4 +18,46 @@
         and
           c.cid = #{cinemaId}
     </select>
+
+    <!--增加影厅-->
+    <insert id="hallAdd" parameterType="Hall">
+        insert into hall
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="hid != null and hid != ''">
+                hid,
+            </if>
+            <if test="name != null and name != ''">
+                name,
+            </if>
+            <if test="capacity != null and capacity != ''">
+                capacity,
+            </if>
+            <if test="cid != null and cid != ''">
+                cid,
+            </if>
+                createtime,
+                updatetime
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="hid != null and hid != ''">
+                #{hid,jdbcType=INTEGER},
+            </if>
+            <if test="name != null and name != ''">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="capacity != null and capacity != ''">
+                #{capacity,jdbcType=INTEGER},
+            </if>
+            <if test="cid != null and cid != ''">
+                #{cid,jdbcType=INTEGER},
+            </if>
+                NOW(),
+                NOW()
+        </trim>
+    </insert>
+
+    <!--根据影院id删除影厅-->
+    <delete id="hallDelByCinemaId" parameterType="java.lang.Integer">
+        delete from hall where cid = #{cid}
+    </delete>
 </mapper>

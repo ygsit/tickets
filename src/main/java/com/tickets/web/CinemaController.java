@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.tickets.entity.Cinema;
 import com.tickets.entity.PageBean;
 import com.tickets.service.CinemaService;
+import com.tickets.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,9 @@ public class CinemaController {
 
     @Autowired
     private CinemaService cinemaService;
+
+    @Autowired
+    private HallService hallService;
 
     /**
      * 分页
@@ -56,11 +60,8 @@ public class CinemaController {
     public void checkname(String name, HttpServletResponse response) {
         try {
             Integer integer = cinemaService.selectByName(name);
-            if (integer == 0) {
-                response.getWriter().write("false");
-            } else {
-                response.getWriter().write("true");
-            }
+            String json = JSONObject.toJSONString(integer);
+            response.getWriter().write(json);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,10 +76,11 @@ public class CinemaController {
         return "redirect:/cinema/findCinemaByPage";
     }
 
-    //删除电影
+    //删除影院
     @RequestMapping("/cinemaDel")
     public String cinemaDel(Integer cid) {
         cinemaService.cinemaDel(cid);
+        hallService.hallDelByCinemaId(cid);
         return "redirect:/cinema/findCinemaByPage";
     }
 

@@ -1,6 +1,7 @@
 package com.tickets.service.impl;
 
 import com.tickets.dao.HallDao;
+import com.tickets.entity.Hall;
 import com.tickets.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,15 @@ public class HallServiceImpl implements HallService {
         map.put("name", name);
         map.put("cinemaId", cinemaId);
         return hallDao.checkHallName(map);
+    }
+
+    @Override
+    public void hallAdd(Hall hall) {
+        hallDao.hallAdd(hall);
+    }
+
+    @Override
+    public void hallDelByCinemaId(Integer cid) {
+        hallDao.hallDelByCinemaId(cid);
     }
 }

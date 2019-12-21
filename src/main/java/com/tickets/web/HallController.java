@@ -1,6 +1,7 @@
 package com.tickets.web;
 
 import com.alibaba.fastjson.JSONObject;
+import com.tickets.entity.Hall;
 import com.tickets.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,7 +38,8 @@ public class HallController {
      * 增加影厅
      */
     @RequestMapping("/hallAdd")
-    public void hallAdd(){
-
+    public String hallAdd(Hall hall){
+        hallService.hallAdd(hall);
+        return "redirect:/cinema/findCinemaByPage";
     }
 }
