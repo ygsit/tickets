@@ -314,9 +314,11 @@
                                    />
                             <span class="col-sm-offset-4 col-sm-8"></span>
                         </div>
+                        <input class="movie_hall_id" name="hid" type="hidden">
                         <div class="row form-group col-sm-12 add_to_movie_hell">
                             <input type="submit" value="保存修改">
                         </div>
+
                     </form>
                 </div>
             </div>

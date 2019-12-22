@@ -155,6 +155,7 @@ function show_view_hall(event, cid) {
             isTr.append('<td>'+(Number(i)+1)+'</td>')
             isTr.append('<td>'+result[i].name+'</td>');
             isTr.append('<td>'+result[i].capacity+'</td>');
+            isTr.append('<td style="display: none">'+result[i].hid+'</td>')
             isTr.append('<td>' +
                 '<a class="btn btn-default" role="button"' +
                 'data-toggle="modal" data-target="#update_cinema_hall" onclick="show_update_cinema_hall(event)" style="margin:5px">修改</a>' +
@@ -178,9 +179,11 @@ function show_update_cinema_hall(event) {
     var cinemaName = $('#view_hall_title').text().split('|')[0];
     var cinemaHallName = $(event.target).parents('tr').children('td').eq(1).text();
     var cinemaHallPeople= $(event.target).parents('tr').children('td').eq(2).text();
+    var hid = $(event.target).parents('tr').children('td').eq(3).text();
     $('#update_cinema_hall .hallName').val(cinemaHallName);
     $('#update_cinema_hall .hallPeople').val(cinemaHallPeople);
     $('#update_cinema_hall_label').text(cinemaName+' · '+cinemaHallName+' | 影厅管理');
+    $('#update_cinema_hall .movie_hall_id').val(hid)
 }
 
 function update_cinema_hall_submit() {
