@@ -71,7 +71,7 @@
                                 &nbsp;&nbsp;<a class="btn btn-default" href="${pageContext.request.contextPath}/slice/findSliceByPage" role="button" onclick="clearValue()">清空</a>
                             </form>
                             <div style="float: right">
-                                <a class="btn btn-primary" href="javascript:showRegister()" role="button">添加影片排期</a>
+                                <a class="btn btn-primary" role="button"  data-toggle="modal" data-target="#movie_schedules_increase" onclick="">添加影片排期</a>
                             </div>
                         </div>
                         <br>
@@ -145,54 +145,119 @@
                 </div>
             </div>
             <%--电影添加模块窗口--%>
-            <div id="winRegister" class="easyui-window" title="添加电影 " style="width:518px;height: 568px"
-                 data-options="iconCls:'icon-save',modal:true,closed:true">
-                <div class="register">
-                    <form id="registerForm" method="post" action="${pageContext.request.contextPath}/movie/movieAdd">
-                        <div style="margin-bottom:20px">
-                            <input class="easyui-textbox" name="name" style="width:300px"
-                                   data-options="label:'电影名:',required:true">
+            <div class="modal fade" id="movie_schedules_increase" tabindex="-1" role="dialog" aria-labelledby="movie_schedules_increase_title"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="movie_schedules_increase_title">
+                                影片排期
+                            </h4>
                         </div>
-                        <div style="margin-bottom:20px">
-                            <input class="easyui-textbox" name="director" style="width:300px"
-                                   data-options="label:'导演:',required:true">
-                        </div>
-                        <div style="margin-bottom:20px">
-                            <input class="easyui-textbox" style="width:300px" name="actor"
-                                   data-options="label:'主演:',required:true">
-                        </div>
-                        <div style="margin-bottom:20px">
-                            <select class="easyui-combobox" name="type" style="width:300px;"
-                                    data-options="label:'类型:',required:true">
-                                <option value="1">科幻片</option>
-                                <option value="2">爱情片</option>
-                                <option value="3">动作片</option>
-                                <option value="4">喜剧片</option>
-                                <option value="5">悬疑片</option>
-                                <option value="6">剧情片</option>
-                            </select>
-                        </div>
-                        <div style="margin-bottom:20px">
-                            <input class="easyui-datetimebox" name="createTime" style="width:300px"
-                                   data-options="label:'上映时间:',required:true">
-                        </div>
-                        <div style="margin-bottom:20px">
-                            <input class="easyui-textbox" name="time" style="width:300px"
-                                   data-options="label:'片长:',required:true">
-                        </div>
-                        <div style="margin-bottom:20px">
-                            <input class="easyui-textbox" name="remark" style="height:100px;width:300px"
-                                   data-options="multiline:true,label:'简介:',required:true">
-                        </div>
-                        <div class="add_btn">
-                            <input type="submit" value="立即添加"/>
-                        </div>
+                        <div class="modal-body">
+                            <form id="add_movie_schedules_increase_form" class="container-fluid" method="post"
+                                  action="${pageContext.request.contextPath}/cinema/cinemaAdd"
+                                  onsubmit="">
+                                <div class="row form-group change_cinema">
+                                    <label class="col-sm-4">选择影院</label>
+                                    <select class="col-sm-8 cinemaId" name="cid" onblur="">
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <span class="col-sm-offset-4 col-sm-8"></span>
+                                </div>
 
-                        <%--用于js获取路径--%>
-                        <input id="PageContext" type="hidden" value="${pageContext.request.contextPath}" />
-                    </form>
+                                <div class="row  form-group ">
+                                    <label class="col-sm-4">选择放映厅</label>
+                                    <select class="col-sm-8 changeHall" name="changeHall" onblur="">
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <span class="col-sm-offset-4 col-sm-8"></span>
+                                </div>
+
+                                <div class="row  form-group ">
+                                    <label class="col-sm-4">电影名称</label>
+                                    <input type="text" class="col-sm-8 movie_name" name="movie_name"
+                                           placeholder="请输入电影名称" onblur="" required/>
+                                    <span class="col-sm-offset-4 col-sm-8"></span>
+                                </div>
+
+                                <div class="row  form-group ">
+                                    <label class="col-sm-4">总票数</label>
+                                    <input type="text" class="col-sm-8 total_votes" name="total_votes"
+                                           placeholder="请输入总票数" onblur="" required/>
+                                    <span class="col-sm-offset-4 col-sm-8"></span>
+                                </div>
+
+                                <div class="row  form-group ">
+                                    <label class="col-sm-4">排期上映时间</label>
+                                    <input type="date" class="col-sm-8 release_time" name="release_time"
+                                           placeholder="请输入时间" min="new Date()" onblur="" required/>
+                                    <span class="col-sm-offset-4 col-sm-8"></span>
+                                </div>
+
+                                <div class="add_btn row form-group col-sm-12 ">
+                                    <input type="submit" value="立即添加">
+                                </div>
+
+                                <%--用于js获取路径--%>
+                                <input id="PageContext" type="hidden" value="${pageContext.request.contextPath}"/>
+                            </form>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
+<%--            <div id="winRegister" class="easyui-window" title="添加电影 " style="width:518px;height: 568px"--%>
+<%--                 data-options="iconCls:'icon-save',modal:true,closed:true">--%>
+<%--                <div class="register">--%>
+<%--                    <form id="registerForm" method="post" action="${pageContext.request.contextPath}/movie/movieAdd">--%>
+<%--                        <div style="margin-bottom:20px">--%>
+<%--                            <input class="easyui-textbox" name="name" style="width:300px"--%>
+<%--                                   data-options="label:'电影名:',required:true">--%>
+<%--                        </div>--%>
+<%--                        <div style="margin-bottom:20px">--%>
+<%--                            <input class="easyui-textbox" name="director" style="width:300px"--%>
+<%--                                   data-options="label:'导演:',required:true">--%>
+<%--                        </div>--%>
+<%--                        <div style="margin-bottom:20px">--%>
+<%--                            <input class="easyui-textbox" style="width:300px" name="actor"--%>
+<%--                                   data-options="label:'主演:',required:true">--%>
+<%--                        </div>--%>
+<%--                        <div style="margin-bottom:20px">--%>
+<%--                            <select class="easyui-combobox" name="type" style="width:300px;"--%>
+<%--                                    data-options="label:'类型:',required:true">--%>
+<%--                                <option value="1">科幻片</option>--%>
+<%--                                <option value="2">爱情片</option>--%>
+<%--                                <option value="3">动作片</option>--%>
+<%--                                <option value="4">喜剧片</option>--%>
+<%--                                <option value="5">悬疑片</option>--%>
+<%--                                <option value="6">剧情片</option>--%>
+<%--                            </select>--%>
+<%--                        </div>--%>
+<%--                        <div style="margin-bottom:20px">--%>
+<%--                            <input class="easyui-datetimebox" name="createTime" style="width:300px"--%>
+<%--                                   data-options="label:'上映时间:',required:true">--%>
+<%--                        </div>--%>
+<%--                        <div style="margin-bottom:20px">--%>
+<%--                            <input class="easyui-textbox" name="time" style="width:300px"--%>
+<%--                                   data-options="label:'片长:',required:true">--%>
+<%--                        </div>--%>
+<%--                        <div style="margin-bottom:20px">--%>
+<%--                            <input class="easyui-textbox" name="remark" style="height:100px;width:300px"--%>
+<%--                                   data-options="multiline:true,label:'简介:',required:true">--%>
+<%--                        </div>--%>
+<%--                        <div class="add_btn">--%>
+<%--                            <input type="submit" value="立即添加"/>--%>
+<%--                        </div>--%>
+
+<%--                        &lt;%&ndash;用于js获取路径&ndash;%&gt;--%>
+<%--                        <input id="PageContext" type="hidden" value="${pageContext.request.contextPath}" />--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+<%--            </div>--%>
             <%--电影修改模块窗口--%>
             <div id="winUpdate" class="easyui-window" title="修改电影信息" style="width:518px;height: 568px"
                  data-options="iconCls:'icon-save',modal:true,closed:true">
