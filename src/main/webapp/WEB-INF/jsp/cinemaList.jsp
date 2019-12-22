@@ -50,8 +50,7 @@
                 <li><a href="${pageContext.request.contextPath}/user/forwardIndex">首页</a></li>
                 <li><a href="${pageContext.request.contextPath}/user/findAllByPage">用户管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/movie/findMovieByPage">电影管理</a></li>
-                <li><a href="${pageContext.request.contextPath}/cinema/findCinemaByPage" class="changeColor">影院管理</a>
-                </li>
+                <li><a href="${pageContext.request.contextPath}/cinema/findCinemaByPage" class="changeColor">影院管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/slice/findSliceByPage">影片排期管理</a></li>
                 <li><a href="">订单管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/user/userPersonal?uid=${uid}">个人中心</a></li>
@@ -213,12 +212,11 @@
                 </div>
                 <div class="modal-body">
                     <form id="update_cinema_form" class="container-fluid" method="post"
-                          action="${pageContext.request.contextPath}/cinema/cinemaAdd"
-                          onsubmit="">
+                          action="${pageContext.request.contextPath}/cinema/cinemaUpdate">
                         <div class="row  form-group ">
                             <label class="col-sm-4">影院名称</label>
                             <input id="cinemaNameToUpdate" type="text" class="col-sm-8 " name="name"
-                                   disabled required/>
+                                   readonly required/>
                             <span class="col-sm-offset-4 col-sm-8"></span>
                         </div>
                         <div class="row  form-group ">
@@ -236,8 +234,8 @@
             </div>
         </div>
     </div>
-    <%--添加影厅窗口--%>
 
+    <%--添加影厅窗口--%>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog">
@@ -283,7 +281,7 @@
             </div>
         </div>
     </div>
-    <%--            修改影厅--%>
+    <%--修改影厅--%>
     <div class="modal fade" id="update_cinema_hall" tabindex="-1" role="dialog" aria-labelledby="update_cinema_hall_label"
          aria-hidden="true">
         <div class="modal-dialog">
@@ -324,7 +322,7 @@
             </div>
         </div>
     </div>
-    <%--            查看影厅--%>
+    <%--查看影厅--%>
     <div class="modal fade" id="view_hall" tabindex="-1" role="dialog" aria-labelledby="view_hall_title"
          aria-hidden="true">
         <div class="modal-dialog">
