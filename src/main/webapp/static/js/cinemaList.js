@@ -136,6 +136,11 @@ function show_view_hall(event) {
     var cinemaId = $(event.target).parents('tr').children('td').eq(0).text();
     var cinemaName = $(event.target).parents('tr').children('td').eq(1).text();
     $('#view_hall_title').text(cinemaName+' | 影院管理');
-
-
+}
+//修改影院按钮的点击事件
+function show_update_cinema(event){
+    var cinemaName = $(event.target).parents('tr').children('td').eq(1).text();
+    var cinemaAddress= $(event.target).parents('tr').children('td').eq(2).text();
+    $('#cinemaNameToUpdate').val(cinemaName);
+    $('#update_cinema .cinema_address').val(cinemaAddress);
 }

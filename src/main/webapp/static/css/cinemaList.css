@@ -40,12 +40,12 @@ td, tr {
     transition: .3s;
 }
 
-#myModal .modal-body,#add_cinema .modal-body{
+#myModal .modal-body,#add_cinema .modal-body,#update_cinema .modal-body{
     box-sizing: border-box;
     padding: 40px;
 }
 
-#myModal .modal-dialog,#add_cinema .modal-dialog{
+#myModal .modal-dialog,#add_cinema .modal-dialog,#update_cinema .modal-dialog{
     margin-top: 180px!important;
 }
 .form-group label{
@@ -97,4 +97,7 @@ td, tr {
 /*影厅管理*/
 #view_hall .modal-dialog {
     width: 1000px;
+}
+#cinemaNameToUpdate{
+    cursor: not-allowed;
 }

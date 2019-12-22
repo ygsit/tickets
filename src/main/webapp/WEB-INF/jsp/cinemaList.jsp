@@ -98,8 +98,8 @@
                                         <td>${cinema.address}</td>
                                         <td><a data-toggle="modal" data-target="#view_hall"  onclick="show_view_hall(event)" >查看影厅</a></td>
                                         <td>
-                                            <a class="btn btn-default" href="#" role="button"
-                                               onclick="findById(${cinema.cid})">修改</a>
+                                            <a class="btn btn-default" role="button"
+                                               data-toggle="modal" data-target="#update_cinema" onclick="show_update_cinema(event)">修改</a>
                                             <a class="btn btn-default" href="#" role="button"
                                                onclick="del(${cinema.cid})">删除</a>
                                         </td>
@@ -195,7 +195,44 @@
                     </div>
                 </div>
             </div>
+<%--            影院修改--%>
+            <div class="modal fade" id="update_cinema" tabindex="-1" role="dialog" aria-labelledby="update_cinema_title"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="update_cinema_title">
+                                修改影院
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="update_cinema_form" class="container-fluid" method="post"
+                                  action="${pageContext.request.contextPath}/cinema/cinemaAdd"
+                                  onsubmit="">
+                                <div class="row  form-group ">
+                                    <label class="col-sm-4">影院名称</label>
+                                    <input id="cinemaNameToUpdate" type="text" class="col-sm-8 " name="name"
+                                           disabled required/>
+                                    <span class="col-sm-offset-4 col-sm-8"></span>
+                                </div>
+                                <div class="row  form-group ">
+                                    <label class="col-sm-4">影院地址</label>
+                                    <input type="text" class="col-sm-8 cinema_address" name="address"
+                                           placeholder="请输入影院地址" onblur="cinema_address_to_check(event)" required/>
+                                    <span class="col-sm-offset-4 col-sm-8"></span>
+                                </div>
 
+                                <div class="add_btn row form-group col-sm-12 ">
+                                    <input type="submit" value="确认修改">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <%--添加影厅窗口--%>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
@@ -242,6 +279,7 @@
                     </div>
                 </div>
             </div>
+<%--            查看影厅--%>
             <div class="modal fade" id="view_hall" tabindex="-1" role="dialog" aria-labelledby="view_hall_title" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
