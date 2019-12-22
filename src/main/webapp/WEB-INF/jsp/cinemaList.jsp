@@ -298,7 +298,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="container-fluid" id="update_cinema_hall_form"
-                          action="${pageContext.request.contextPath}/hall/hallAdd"
+                          action="${pageContext.request.contextPath}/hall/hallUpdate"
                           onsubmit="return update_cinema_hall_submit()">
                         <div class="row  form-group movie_hall_name">
                             <label class="col-sm-4">影厅名称</label>

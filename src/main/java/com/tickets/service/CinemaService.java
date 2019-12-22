@@ -28,4 +28,7 @@ public interface CinemaService {
 
     //查询所有影院
     List<Cinema> findAllCinemas();
+
+    //修改影院
+    void cinemaUpdate(Cinema cinema);
 }

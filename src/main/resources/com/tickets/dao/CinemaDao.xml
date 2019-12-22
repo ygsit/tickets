@@ -59,52 +59,13 @@
           cinema
     </select>
 
-    <!--根据id查找电影-->
-    <!--<select id="findByIdForUpdate" parameterType="java.lang.Integer" resultType="Movie">
-        select
-        m.mid,
-        m.name,
-        m.director,
-        m.actor,
-        m.type,
-        m.time,
-        m.remark,
-        m.createTime
-        from
-        movie m
-        where
-        m.mid = #{mid}
-    </select>
-
-    &lt;!&ndash;更新电影&ndash;&gt;
-    <update id="movieUpdate" parameterType="Movie">
+    <!--修改电影院-->
+    <update id="cinemaUpdate" parameterType="Cinema">
         update
-        movie
-        <set>
-            <if test="name != null and name != ''">
-                name = #{name},
-            </if>
-            <if test="director != null and director != ''">
-                director = #{director},
-            </if>
-            <if test="actor != null and actor != ''">
-                actor = #{actor},
-            </if>
-            <if test="type != null and type != ''">
-                type = #{type},
-            </if>
-            <if test="time != null and time != ''">
-                time = #{time},
-            </if>
-            <if test="remark != null and remark != ''">
-                remark = #{remark},
-            </if>
-            <if test="createTime != null and createTime != ''">
-                createTime = #{createTime},
-            </if>
-            updateTime = NOW()
-        </set>
+         cinema
+        set
+          address = #{address}
         where
-        mid = #{mid}
-    </update>-->
+          name = #{name}
+    </update>
 </mapper>

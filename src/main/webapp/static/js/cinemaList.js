@@ -1,4 +1,4 @@
-/*删除*/
+/*删除影院*/
 function del(cid) {
     var flag = confirm("确定要删除吗？");
     if(flag){
@@ -6,6 +6,16 @@ function del(cid) {
         window.location.href = $("#PageContext").val()+"/cinema/cinemaDel?cid="+cid;
     }
 }
+
+/*删除影厅*/
+function hallDel(hid) {
+    var flag = confirm("确定要删除吗？");
+    if(flag){
+        //确认删除
+        window.location.href = $("#PageContext").val()+"/hall/hallDel?hid="+hid;
+    }
+}
+
 //添加影院的按钮点击时初始化表单
 function showAddCinema() {
     $('#add_cinema_form').children('.form-group').children('span').text('')
@@ -159,7 +169,7 @@ function show_view_hall(event, cid) {
             isTr.append('<td>' +
                 '<a class="btn btn-default" role="button"' +
                 'data-toggle="modal" data-target="#update_cinema_hall" onclick="show_update_cinema_hall(event)" style="margin:5px">修改</a>' +
-                '<a class="btn btn-default" href="#" role="button"' + 'onclick="del('+result[i].hid+')">删除</a>' + '</td>')
+                '<a class="btn btn-default" href="#" role="button"' + 'onclick="hallDel('+result[i].hid+')">删除</a>' + '</td>')
             $('#view_hall .modal-body table tbody').append(isTr)
         }
     });
