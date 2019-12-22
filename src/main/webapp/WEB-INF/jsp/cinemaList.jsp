@@ -28,7 +28,6 @@
                 src="${pageContext.request.contextPath}/plugins/easyui/jquery.easyui.min.js"></script>
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/plugins/easyui/locale/easyui-lang-zh_CN.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/cinemaList.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/login.js"></script>
 
     </head>
