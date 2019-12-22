@@ -14,6 +14,7 @@ function showAddCinema() {
 }
 /*增加影厅(查询所有影院)*/
 function showAddHall() {
+    $('.change_cinema select').html('<option value="">请选择</option>')
     $.post($("#PageContext").val()+"/cinema/findAllCinemas",{},function(result){
         for(var i = 0; i < result.length; i++){
             $('.change_cinema select').append($('<option  value="'+result[i].cid+'">'+result[i].name+'</option>'))
@@ -65,18 +66,27 @@ function cinema_form__submit() {
 }
 
 /*校验影厅名*/
+var cinid ;
 function checkHallName(event) {
-    $(".hallName").next().text('')
-    if($(".hallName").val()==''){
-        $(".hallName").next().text('影厅名称不能为空')
+    $(event.target).next().text('');
+    if($(event.target).val()==''){
+        $(event.target).next().text('影厅名称不能为空')
         return;
     }
-    var hallName = $(".hallName").val();
+    var hallName = $(event.target).val();
     var cinemaId = $(".cinemaId").val();
+    if($(event.target).parents('.modal')[0].id == 'update_cinema_hall'){
+        cinemaId  = cinid;
+    }
     $.post($("#PageContext").val()+"/hall/checkHallName",{"name": hallName, "cinemaId": cinemaId}, function (result) {
-        $(".hallName").next().text('')
+        $(event.target).next().text('');
+        if($(event.target).parents('.modal')[0].id == 'update_cinema_hall'){
+            if(result==1&&$(event.target).parents('.modal-content').children('.modal-header').children('.modal-title').text().split('·')[1].split('|')[0].trim()==$(event.target).val().trim()){
+                return
+            }
+        }
         if(result==1){
-            $(".hallName").next().text('影厅名称已存在')
+            $(event.target).next().text('影厅名称已存在')
         }
     })
 }
@@ -132,8 +142,25 @@ function addMovieHell() {
 
 //影厅管理按钮的点击事件
 function show_view_hall(event, cid) {
+    $('#view_hall .modal-body table tbody').html('')
+    $('#view_hall .modal-body h4').remove('.not_cinema_hall')
     $.post($("#PageContext").val()+"/hall/showHalls", {"cid": cid}, function (result) {
-        //[{"capacity":80,"hid":1,"name":"一号厅"},{"capacity":80,"hid":2,"name":"二号厅"},{"capacity":80,"hid":3,"name":"三号厅"},{"capacity":64,"hid":4,"name":"四号厅"}]
+        if(result.length==0){
+            $('#view_hall .modal-body').append($('<h4 class="not_cinema_hall">该影院目前没有影厅！</h4>'))
+            return
+        }
+        cinid  =result[0].cid;
+        for(let i in result){
+            let isTr = $('<tr></tr>')
+            isTr.append('<td>'+(Number(i)+1)+'</td>')
+            isTr.append('<td>'+result[i].name+'</td>');
+            isTr.append('<td>'+result[i].capacity+'</td>');
+            isTr.append('<td>' +
+                '<a class="btn btn-default" role="button"' +
+                'data-toggle="modal" data-target="#update_cinema_hall" onclick="show_update_cinema_hall(event)" style="margin:5px">修改</a>' +
+                '<a class="btn btn-default" href="#" role="button"' + 'onclick="del('+result[i].hid+')">删除</a>' + '</td>')
+            $('#view_hall .modal-body table tbody').append(isTr)
+        }
     });
     var cinemaName = $(event.target).parents('tr').children('td').eq(1).text();
     $('#view_hall_title').text(cinemaName+' | 影院管理');
@@ -144,4 +171,20 @@ function show_update_cinema(event){
     var cinemaAddress= $(event.target).parents('tr').children('td').eq(2).text();
     $('#cinemaNameToUpdate').val(cinemaName);
     $('#update_cinema .cinema_address').val(cinemaAddress);
+}
+//修改影厅按钮的点击事件
+function show_update_cinema_hall(event) {
+    $('#update_cinema_hall span.col-sm-offset-4.col-sm-8').text('')
+    var cinemaName = $('#view_hall_title').text().split('|')[0];
+    var cinemaHallName = $(event.target).parents('tr').children('td').eq(1).text();
+    var cinemaHallPeople= $(event.target).parents('tr').children('td').eq(2).text();
+    $('#update_cinema_hall .hallName').val(cinemaHallName);
+    $('#update_cinema_hall .hallPeople').val(cinemaHallPeople);
+    $('#update_cinema_hall_label').text(cinemaName+' · '+cinemaHallName+' | 影厅管理');
+}
+
+function update_cinema_hall_submit() {
+    if($('#update_cinema_hall form .form-group span').text()!=''){
+        return false
+    }
 }
