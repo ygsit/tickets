@@ -133,5 +133,9 @@ function addMovieHell() {
 
 //影厅管理按钮的点击事件
 function show_view_hall(event) {
-    console.log(event)
+    var cinemaId = $(event.target).parents('tr').children('td').eq(0).text();
+    var cinemaName = $(event.target).parents('tr').children('td').eq(1).text();
+    $('#view_hall_title').text(cinemaName+' | 影院管理');
+
+
 }

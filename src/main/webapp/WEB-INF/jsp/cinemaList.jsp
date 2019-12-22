@@ -92,11 +92,11 @@
                                     <td>操作</td>
                                 </tr>
                                 <c:forEach var="cinema" items="${pageBean.list}" varStatus="s">
-                                    <tr>
+                                    <tr >
                                         <td>${(pageBean.currentPage-1) * (pageBean.pageCount) + s.count}</td>
                                         <td>${cinema.name}</td>
                                         <td>${cinema.address}</td>
-                                        <td><a>查看影厅</a></td>
+                                        <td><a data-toggle="modal" data-target="#view_hall"  onclick="show_view_hall(event)" >查看影厅</a></td>
                                         <td>
                                             <a class="btn btn-default" href="#" role="button"
                                                onclick="findById(${cinema.cid})">修改</a>
@@ -238,6 +238,23 @@
                                     <input type="submit" value="立即添加">
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="view_hall" tabindex="-1" role="dialog" aria-labelledby="view_hall_title" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="view_hall_title">
+                                影厅管理
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+
                         </div>
                     </div>
                 </div>
