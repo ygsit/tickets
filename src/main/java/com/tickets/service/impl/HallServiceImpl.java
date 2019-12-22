@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -30,5 +31,10 @@ public class HallServiceImpl implements HallService {
     @Override
     public void hallDelByCinemaId(Integer cid) {
         hallDao.hallDelByCinemaId(cid);
+    }
+
+    @Override
+    public List<Hall> showHalls(Integer cid) {
+        return hallDao.showHalls(cid);
     }
 }

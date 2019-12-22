@@ -7,6 +7,9 @@ import com.tickets.service.SliceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +36,18 @@ public class SliceServiceImpl implements SliceService {
         map.put("pageCount", pageCount);
         map.put("slice", slice);
         List<Slice> slices = sliceDao.findSliceByPage(map);
+        /*SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        for (Slice slice1 : slices) {
+            Date playTime = slice1.getPlayTime();
+            String format = simpleDateFormat.format(playTime);
+            Date parse = null;
+            try {
+                parse = simpleDateFormat.parse(format);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            slice1.setPlayTime(parse);
+        }*/
         //求出总页数
         Integer totalPage = (totalCount % pageCount == 0) ? (totalCount / pageCount) : (totalCount / pageCount) + 1;
         PageBean<Slice> pageBean = new PageBean<Slice>();

@@ -34,7 +34,7 @@ public class Slice {
     /**
      * 播出时间
      */
-    private Date playTime;
+    private String playTime;
 
     /**
      * 创建时间
@@ -86,11 +86,11 @@ public class Slice {
         this.price = price;
     }
 
-    public Date getPlayTime() {
+    public String getPlayTime() {
         return playTime;
     }
 
-    public void setPlayTime(Date playTime) {
+    public void setPlayTime(String playTime) {
         this.playTime = playTime;
     }
 

@@ -26,7 +26,6 @@ function showAddHall() {
     $('#addCinemaForm').children('.form-group').children('.hallPeople').val('')
 
 
-
 }
 
 /*校验影院名*/
@@ -132,8 +131,10 @@ function addMovieHell() {
 
 
 //影厅管理按钮的点击事件
-function show_view_hall(event) {
-    var cinemaId = $(event.target).parents('tr').children('td').eq(0).text();
+function show_view_hall(event, cid) {
+    $.post($("#PageContext").val()+"/hall/showHalls", {"cid": cid}, function (result) {
+        //[{"capacity":80,"hid":1,"name":"一号厅"},{"capacity":80,"hid":2,"name":"二号厅"},{"capacity":80,"hid":3,"name":"三号厅"},{"capacity":64,"hid":4,"name":"四号厅"}]
+    });
     var cinemaName = $(event.target).parents('tr').children('td').eq(1).text();
     $('#view_hall_title').text(cinemaName+' | 影院管理');
 }

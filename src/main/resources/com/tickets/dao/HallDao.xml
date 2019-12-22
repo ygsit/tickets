@@ -60,4 +60,16 @@
     <delete id="hallDelByCinemaId" parameterType="java.lang.Integer">
         delete from hall where cid = #{cid}
     </delete>
+
+    <!--根据影院id查找所有影厅-->
+    <select id="showHalls" parameterType="java.lang.Integer" resultType="Hall">
+        select
+          hid,
+          name,
+          capacity
+        from
+          hall
+        where
+          cid = #{cid}
+    </select>
 </mapper>

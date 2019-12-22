@@ -96,7 +96,7 @@
                                         <td>${(pageBean.currentPage-1) * (pageBean.pageCount) + s.count}</td>
                                         <td>${cinema.name}</td>
                                         <td>${cinema.address}</td>
-                                        <td><a data-toggle="modal" data-target="#view_hall"  onclick="show_view_hall(event)" >查看影厅</a></td>
+                                        <td><a data-toggle="modal" data-target="#view_hall"  onclick="show_view_hall(event, ${cinema.cid})" >查看影厅</a></td>
                                         <td>
                                             <a class="btn btn-default" role="button"
                                                data-toggle="modal" data-target="#update_cinema" onclick="show_update_cinema(event)">修改</a>
