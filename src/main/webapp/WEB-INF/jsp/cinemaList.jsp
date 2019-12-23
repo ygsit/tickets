@@ -197,7 +197,7 @@
             </div>
         </div>
     </div>
-    <%--            影院修改--%>
+    <%--影院修改--%>
     <div class="modal fade" id="update_cinema" tabindex="-1" role="dialog" aria-labelledby="update_cinema_title"
          aria-hidden="true">
         <div class="modal-dialog">
