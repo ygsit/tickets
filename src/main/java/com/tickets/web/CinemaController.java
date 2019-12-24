@@ -96,4 +96,11 @@ public class CinemaController {
             e.printStackTrace();
         }
     }
+
+    //修改影院
+    @RequestMapping("/cinemaUpdate")
+    public String cinemaUpdate(Cinema cinema){
+        cinemaService.cinemaUpdate(cinema);
+        return "redirect:/cinema/findCinemaByPage";
+    }
 }

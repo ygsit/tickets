@@ -37,4 +37,14 @@ public class HallServiceImpl implements HallService {
     public List<Hall> showHalls(Integer cid) {
         return hallDao.showHalls(cid);
     }
+
+    @Override
+    public void hallUpdate(Hall hall) {
+        hallDao.hallUpdate(hall);
+    }
+
+    @Override
+    public void hallDel(Integer hid) {
+        hallDao.hallDel(hid);
+    }
 }

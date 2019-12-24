@@ -62,4 +62,9 @@ public class CinemaServiceImpl implements CinemaService {
     public List<Cinema> findAllCinemas() {
         return cinemaDao.findAllCinemas();
     }
+
+    @Override
+    public void cinemaUpdate(Cinema cinema) {
+        cinemaDao.cinemaUpdate(cinema);
+    }
 }

@@ -59,6 +59,8 @@
                     <div class="container">
                         <div class="row">
                             <form class="form-inline" action="${pageContext.request.contextPath}/slice/findSliceByPage">
+                                <%--用于js获取路径--%>
+                                <input id="PageContext" type="hidden" value="${pageContext.request.contextPath}" />
                                 <div class="form-group">
                                     <label for="exampleInputName">影院名</label>
                                     <input type="text" class="form-control" id="exampleInputName" name="cname" value="${selectCName}">

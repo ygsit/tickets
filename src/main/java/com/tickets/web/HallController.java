@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.SortedMap;
 
 @Controller
 @RequestMapping("/hall")
@@ -56,5 +55,23 @@ public class HallController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 更新影厅
+     */
+    @RequestMapping("/hallUpdate")
+    public String hallUpdate(Hall hall){
+        hallService.hallUpdate(hall);
+        return "redirect:/cinema/findCinemaByPage";
+    }
+
+    /**
+     * 删除影厅
+     */
+    @RequestMapping("/hallDel")
+    public String hallDel(Integer hid){
+        hallService.hallDel(hid);
+        return "redirect:/cinema/findCinemaByPage";
     }
 }

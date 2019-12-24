@@ -19,4 +19,10 @@ public interface HallDao {
 
     //根据影院显示所有影厅
     List<Hall> showHalls(Integer cid);
+
+    //更新影厅
+    void hallUpdate(Hall hall);
+
+    //删除影厅
+    void hallDel(Integer hid);
 }

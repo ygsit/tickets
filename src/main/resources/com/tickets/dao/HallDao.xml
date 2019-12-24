@@ -73,4 +73,20 @@
         where
           cid = #{cid}
     </select>
+
+    <!--影厅更新-->
+    <update id="hallUpdate" parameterType="Hall">
+        update
+          hall
+        set
+          name = #{name},
+          capacity = #{capacity}
+        where
+          hid = #{hid}
+    </update>
+
+    <!--删除影厅-->
+    <delete id="hallDel" parameterType="java.lang.Integer">
+        delete from hall where hid = #{hid}
+    </delete>
 </mapper>
