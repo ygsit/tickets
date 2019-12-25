@@ -31,4 +31,7 @@ public interface CinemaDao {
 
     //修改影院
     void cinemaUpdate(Cinema cinema);
+
+    //查询影院地址
+    String findAddress(String cname);
 }

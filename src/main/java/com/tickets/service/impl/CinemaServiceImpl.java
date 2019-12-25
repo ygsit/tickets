@@ -67,4 +67,9 @@ public class CinemaServiceImpl implements CinemaService {
     public void cinemaUpdate(Cinema cinema) {
         cinemaDao.cinemaUpdate(cinema);
     }
+
+    @Override
+    public String findAddress(String cname) {
+        return cinemaDao.findAddress(cname);
+    }
 }

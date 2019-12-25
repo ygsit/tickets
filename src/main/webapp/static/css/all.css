@@ -1,0 +1,14 @@
+/* 都会用到的css */
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+button {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
