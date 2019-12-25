@@ -45,11 +45,14 @@
                     <p>导航菜单</p>
                     <ul class="list-unstyled">
                         <li><a href="${pageContext.request.contextPath}/user/forwardIndex">首页</a></li>
-                        <li><a href="${pageContext.request.contextPath}/user/findAllByPage">用户管理</a></li>
-                        <li><a href="${pageContext.request.contextPath}/movie/findMovieByPage">电影管理</a></li>
-                        <li><a href="${pageContext.request.contextPath}/cinema/findCinemaByPage">影院管理</a></li>
-                        <li><a href="${pageContext.request.contextPath}/slice/findSliceByPage" class="changeColor">影片排期管理</a></li>
-                        <li><a href="">订单管理</a></li>
+                        <input id="ifHidden" type="hidden" value="${permission}"/>
+                        <div class="ifHidden">
+                            <li><a href="${pageContext.request.contextPath}/user/findAllByPage">用户管理</a></li>
+                            <li><a href="${pageContext.request.contextPath}/movie/findMovieByPage">电影管理</a></li>
+                            <li><a href="${pageContext.request.contextPath}/cinema/findCinemaByPage">影院管理</a></li>
+                            <li><a href="${pageContext.request.contextPath}/slice/findSliceByPage" class="changeColor">影片排期管理</a></li>
+                            <li><a href="">订单管理</a></li>
+                        </div>
                         <li><a href="${pageContext.request.contextPath}/user/userPersonal?uid=${uid}">个人中心</a></li>
                         <li><a href="">我的订单</a></li>
                     </ul>
