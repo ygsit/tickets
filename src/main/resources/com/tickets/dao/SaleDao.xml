@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tickets.dao.SaleDao">
+
+    <!--查找电影相关信息-->
+    <select id="showMovie" parameterType="java.lang.String" resultType="Movie">
+        select
+            m.mid,
+            m.name,
+            m.director,
+            m.actor,
+            m.type,
+            m.time,
+            m.remark,
+            m.createTime
+        from
+            movie m
+        where
+            m.name = #{name}
+    </select>
+
+    <!--查找排片相关信息-->
+    <select id="showSlice" parameterType="java.lang.String" resultType="Slice">
+        select
+            s.sid,
+            s.cname,
+            s.hname,
+            s.mname,
+            s.price,
+            s.playTime
+        from
+            slice s
+        where
+            s.mname = #{name}
+    </select>
+
+</mapper>

@@ -1,3 +1,11 @@
+//权限判断
+$(function () {
+    var permisson = $("#ifHidden").val();
+    if(permisson == 0){
+        $(".ifHidden").addClass("toHidden")
+    }
+})
+
 //切换验证码
 function refreshCode() {
     //1.获取验证码图片对象
