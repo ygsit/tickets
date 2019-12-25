@@ -14,11 +14,13 @@
         <link href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/sliceList.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/index.css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap-datetimepicker.css" />
 
         <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
         <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/jquery-1.12.4.min.js"></script>
         <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
         <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap-datetimepicker.js"></script>
         <script src="${pageContext.request.contextPath}/static/js/sliceList.js"></script>
         <!-- easyUI -->
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/plugins/easyui/themes/default/easyui.css">
@@ -281,8 +283,6 @@
                                     <input type="submit" value="立即添加">
                                 </div>
 
-                                <%--用于js获取路径--%>
-                                <input id="PageContext" type="hidden" value="${pageContext.request.contextPath}"/>
                             </form>
                             </table>
                         </div>
