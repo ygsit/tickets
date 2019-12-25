@@ -12,6 +12,10 @@
     <title>${movie.name}</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/all.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/buy_index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font/iconfont.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/all.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/seatSelection.css">
+    <script src="${pageContext.request.contextPath}/plugins/font/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -100,6 +104,26 @@
             <div class="cinemas_cell"></div> -->
         </div>
     </div>
+
+    <div class="seat">
+        <div class="title">
+            <div>
+                <i class="iconfont icon-zuowei seat_optional"></i>
+                <span>可选座位</span>
+            </div>
+            <div>
+                <i class="iconfont icon-zuowei seat_selected"></i>
+                <span>已售座位</span>
+            </div>
+            <div>
+                <i class="iconfont icon-zuowei seat_sold"></i>
+                <span>已选座位</span>
+            </div>
+        </div>
+        <div class="seatSection">
+        </div>
+    </div>
+    <script src="${pageContext.request.contextPath}/static/js/seatSelection.js"></script>
 </body>
 
 </html>

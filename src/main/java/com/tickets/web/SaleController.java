@@ -56,4 +56,5 @@ public class SaleController {
         modelAndView.setViewName("buy");
         return modelAndView;
     }
+
 }
