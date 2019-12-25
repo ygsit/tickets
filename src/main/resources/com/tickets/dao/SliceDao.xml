@@ -8,7 +8,7 @@
         select
           count(sid)
         from
-        slice
+          slice
         <where>
             <if test="cname != null and cname != ''">
                 cname like '%${cname}%'
@@ -41,4 +41,31 @@
         limit
         #{start}, #{pageCount}
     </select>
+
+    <!--增加排片-->
+    <insert id="sliceAdd" parameterType="Slice">
+        insert into
+          slice(cname, hname, mname, price, playTime, createTime, updateTime)
+        values(#{cname}, #{hname}, #{mname}, #{price}, #{playTime}, NOW(), NOW())
+    </insert>
+
+    <!--修改排片-->
+    <update id="sliceUpdate" parameterType="Slice">
+        update
+          slice
+        set
+          cname = #{cname},
+          hname = #{hname},
+          mname = #{mname},
+          price = #{price},
+          playTime = #{playTime},
+          updateTime = NOW()
+        where
+          sid = #{sid}
+    </update>
+
+    <!--删除排片-->
+    <delete id="sliceDel" parameterType="java.lang.Integer">
+        delete from slice where sid = #{sid}
+    </delete>
 </mapper>

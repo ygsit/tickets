@@ -89,4 +89,14 @@
     <delete id="hallDel" parameterType="java.lang.Integer">
         delete from hall where hid = #{hid}
     </delete>
+
+    <!--根据影厅id查找影厅-->
+    <select id="findHallById" parameterType="java.lang.Integer" resultType="java.lang.String">
+        select
+          name
+        from
+          hall
+        where
+          hid = #{hid}
+    </select>
 </mapper>

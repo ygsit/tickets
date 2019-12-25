@@ -72,4 +72,9 @@ public class CinemaServiceImpl implements CinemaService {
     public String findAddress(String cname) {
         return cinemaDao.findAddress(cname);
     }
+
+    @Override
+    public String findCinemaById(int parseInt) {
+        return cinemaDao.findCinemaById(parseInt);
+    }
 }

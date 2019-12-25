@@ -34,4 +34,7 @@ public interface CinemaDao {
 
     //查询影院地址
     String findAddress(String cname);
+
+    //根据影院id查找影院
+    String findCinemaById(int parseInt);
 }

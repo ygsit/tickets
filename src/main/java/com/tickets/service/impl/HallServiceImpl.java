@@ -47,4 +47,9 @@ public class HallServiceImpl implements HallService {
     public void hallDel(Integer hid) {
         hallDao.hallDel(hid);
     }
+
+    @Override
+    public String findHallById(int parseInt) {
+        return hallDao.findHallById(parseInt);
+    }
 }

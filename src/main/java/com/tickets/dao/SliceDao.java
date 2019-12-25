@@ -13,4 +13,13 @@ public interface SliceDao {
 
     //分页查询
     List<Slice> findSliceByPage(Map<String, Object> map);
+
+    //增加排片
+    void sliceAdd(Slice slice);
+
+    //修改排片
+    void sliceUpdate(Slice slice);
+
+    //删除排片
+    void sliceDel(Integer sid);
 }

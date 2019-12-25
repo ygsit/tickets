@@ -25,4 +25,7 @@ public interface HallDao {
 
     //删除影厅
     void hallDel(Integer hid);
+
+    //根据影厅id查找影厅
+    String findHallById(int parseInt);
 }

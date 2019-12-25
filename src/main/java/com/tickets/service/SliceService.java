@@ -9,4 +9,13 @@ public interface SliceService {
 
     //分页
     PageBean<Slice> doPage(Slice slice, Integer currentPage, Integer pageCount);
+
+    //增加排片
+    void sliceAdd(Slice slice);
+
+    //修改排片
+    void sliceUpdate(Slice slice);
+
+    //删除排片
+    void sliceDel(Integer sid);
 }

@@ -43,4 +43,19 @@ public class SliceServiceImpl implements SliceService {
         pageBean.setList(slices);
         return pageBean;
     }
+
+    @Override
+    public void sliceAdd(Slice slice) {
+        sliceDao.sliceAdd(slice);
+    }
+
+    @Override
+    public void sliceUpdate(Slice slice) {
+        sliceDao.sliceUpdate(slice);
+    }
+
+    @Override
+    public void sliceDel(Integer sid) {
+        sliceDao.sliceDel(sid);
+    }
 }

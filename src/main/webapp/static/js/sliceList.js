@@ -1,3 +1,12 @@
+/*删除*/
+function del(sid) {
+    var flag = confirm("确定要删除吗？");
+    if(flag){
+        //确认删除
+        window.location.href = $("#PageContext").val()+"/slice/sliceDel?sid="+sid;
+    }
+}
+
 //当前日期之前的日期不能选择
 function  movie_release_date() {
     var this_date = new Date();

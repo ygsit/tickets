@@ -14,13 +14,11 @@
         <link href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/sliceList.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/index.css" />
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap-datetimepicker.css" />
 
         <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
         <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/jquery-1.12.4.min.js"></script>
         <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
         <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap-datetimepicker.js"></script>
         <script src="${pageContext.request.contextPath}/static/js/sliceList.js"></script>
         <!-- easyUI -->
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/plugins/easyui/themes/default/easyui.css">
@@ -194,9 +192,9 @@
 
                                 <div class="row  form-group ">
                                     <label class="col-sm-4">排期上映时间</label>
-                                    <input type="date" class="col-sm-4 release_time_date" name="release_date"
+                                    <input type="date" class="col-sm-4 release_time_date" name="yearMonth"
                                            placeholder="请输入日期" min="" onblur="" required/>
-                                    <input type="time" class="col-sm-4 release_time_time" name="release_time"
+                                    <input type="time" class="col-sm-4 release_time_time" name="dayMinutes"
                                            placeholder="请输入时间" min="" onblur="" required/>
                                     <span class="col-sm-offset-4 col-sm-8"></span>
                                 </div>
@@ -236,7 +234,7 @@
                         </div>
                         <div class="modal-body">
                             <form id="update_movie_schedules_increase_form" class="container-fluid" method="post"
-                                  action="${pageContext.request.contextPath}/slice/slcieUpdate"
+                                  action="${pageContext.request.contextPath}/slice/sliceUpdate"
                                   onsubmit="">
                                 <div class="row form-group change_cinema">
                                     <label class="col-sm-4">选择影院</label>
@@ -264,9 +262,9 @@
 
                                 <div class="row  form-group ">
                                     <label class="col-sm-4">排期上映时间</label>
-                                    <input type="date" class="col-sm-4 release_time_date" name="release_date"
+                                    <input type="date" class="col-sm-4 release_time_date" name="yearMonth"
                                            placeholder="请输入日期" min="" onblur="" required/>
-                                    <input type="time" class="col-sm-4 release_time_time" name="release_time"
+                                    <input type="time" class="col-sm-4 release_time_time" name="dayMinutes"
                                            placeholder="请输入时间" min="" onblur="" required/>
                                     <span class="col-sm-offset-4 col-sm-8"></span>
                                 </div>
@@ -280,7 +278,7 @@
                                 <input type="hidden" class="update_mov_sch_sid" name="sid" >
 
                                 <div class="add_btn row form-group col-sm-12 ">
-                                    <input type="submit" value="立即添加">
+                                    <input type="submit" value="立即修改">
                                 </div>
 
                             </form>
