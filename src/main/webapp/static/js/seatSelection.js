@@ -1,11 +1,5 @@
 //订单信息
-let order = {
-    movie: '',//电影名称
-    cinema: '',//影院名称
-    time: '',//时间段
-    seat: ''//座位号
-    
-}
+
   
 /**
  * 动态创建座位
@@ -13,6 +7,7 @@ let order = {
  * @param {number} col 
  */
 function setMovieHall(row, col) {
+    $('.seatSection').html('');
     //创建数组，保存座位的选中状态
     let seatSection = new Array(row);
     for (let i in seatSection) {
@@ -37,47 +32,23 @@ function setMovieHall(row, col) {
  * 获取座位的状态
  * @param {obj} data 
  */
-function getSeatStatus(data){
-    $.$.ajax({
-        type: "post",
-        url: "url",
-        data: "data",
-        dataType: "json",
-        success: function (response) {
-            
-        },
-        error:function(err){
-         console.log(err)   
-        }
-        
-    });
-}
+function setSeatStatus(arr){
+    console.log("ssss")
+   for(let i in arr){
+       for(let j in arr[i]){
+           if(arr[i][j]==1){
+               $('#i'+Number(Number(i)+1)+Number(Number(j)+1)).children('i.iconfont').addClass('seat_sold');
+           }
+       }
+   }
 
-/**
- * 提交订单
- */
-function submitOrder(){
+
 
 }
 
 
-//立即执行函数
-(function(){
-    setMovieHall(8, 8);//要放在前面
-    getSeatStatus(order);
-    $('.seatSection .row .se').click(function () {
-        //排除选中的不是数值的部分
-        if (!this.id) return;
-        //排除已售的座位
-        if ($(this).children('i').hasClass('seat_sold')) return;
 
-        if ($(this).children('i').hasClass('seat_selected')) {
-            $(this).children('i').removeClass('seat_selected')
-        } else {
-            $(this).children('i').addClass('seat_selected')
-        }
-    })
-}())
+
 
 
 
