@@ -25,4 +25,7 @@ public interface HallService {
 
     //根据影厅id查找影厅
     String findHallById(int parseInt);
+
+    //获得影厅的大小
+    Integer findCapacity(String hname, String cname);
 }

@@ -48,7 +48,7 @@
                             <li><a href="">订单管理</a></li>
                         </div>
                         <li><a href="${pageContext.request.contextPath}/user/userPersonal?uid=${uid}">个人中心</a></li>
-                        <li><a href="">我的订单</a></li>
+                        <li><a href="${pageContext.request.contextPath}/order/selectOrders?uid=${uid}">我的订单</a></li>
                     </ul>
                 </div>
 

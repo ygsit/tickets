@@ -1,5 +1,6 @@
 package com.tickets.dao;
 
+import com.tickets.entity.Order;
 import com.tickets.entity.User;
 import org.springframework.stereotype.Repository;
 
@@ -44,4 +45,13 @@ public interface UserDao {
 
     //充值功能
     void updateMoney(User user);
+
+    //查钱
+    Double findMoney(Integer uid);
+
+    //付钱
+    void payTicket(Map<String, Object> map);
+
+    //添加订单
+    void addOrder(Order order);
 }

@@ -36,4 +36,13 @@ public interface UserService {
 
     //充值功能
     void updateMoney(User user);
+
+    //查钱
+    Double findMoney(Integer uid);
+
+    //付钱
+    void payTicket(Double price, Integer uid);
+
+    //添加订单
+    void addOrder(Integer uid, Integer sid);
 }

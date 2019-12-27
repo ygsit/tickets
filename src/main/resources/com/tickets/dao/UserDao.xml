@@ -177,4 +177,30 @@
           uid = #{uid}
     </update>
 
+    <!--查钱-->
+    <select id="findMoney" parameterType="java.lang.Integer" resultType="java.lang.Double">
+        select
+          money
+        from
+          user
+        where
+          uid = #{uid}
+    </select>
+
+    <!--付钱-->
+    <update id="payTicket" parameterType="java.util.Map">
+        update
+          user
+        set
+          money = money - #{price}
+        where
+          uid = #{uid}
+    </update>
+
+    <!--添加订单-->
+    <insert id="addOrder" parameterType="Order">
+        insert into
+          `order`(oid, uid, sid, createTime, updateTime)
+        values(#{oid}, #{uid}, #{sid}, NOW(), NOW())
+    </insert>
 </mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tickets.dao.OrderDao">
+    <!--订单查询-->
+    <select id="selectOrders" parameterType="java.util.Map" resultType="Slice">
+        select
+          s.cname,
+          s.hname,
+          s.mname,
+          s.price,
+          s.playTime
+        from
+          slice s,
+          (select
+               sid
+            from
+              `order`
+            where
+               uid = #{uid}) tab1
+        where
+          s.sid = tab1.sid
+        limit
+        #{start}, #{pageCount}
+    </select>
+
+    <!--查询总记录数-->
+    <select id="findTotalCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select
+          count(s.sid)
+        from
+          slice s,
+        (select
+           sid
+        from
+          `order`
+        where
+           uid = #{uid}) tab1
+        where
+          s.sid = tab1.sid
+    </select>
+</mapper>

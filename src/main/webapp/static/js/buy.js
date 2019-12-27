@@ -1,14 +1,12 @@
-function show_seat_selection_dialog(el){
-
+function show_seat_selection_dialog(el,hname,playTime,capacity){
     $('.seat_arr').html('');
     var cinemaName = $(el.target).parents('.cinemas_cell').children('.cinema_info').children('.cinema_name').text().trim();
     var price  = $(el.target).parents('.cinemas_cell').children('.price').children('.price_num').text().trim();
     var movieName = $('.wrapper .movie_brief').children('h3').text().trim();
     //暂时没有影厅，时间，影厅大小
-    var hallName='',
-        hallSize=64,
-        time='';
-
+    var hallName=hname,
+        hallSize= Number(capacity),
+        time=playTime;
 
     $($('.ti_val')[0]).text(cinemaName);/*影院*/
     $($('.ti_val')[1]).text(hallName);/**/
@@ -115,9 +113,20 @@ function toBuyToSub() {
     var movN = $('.wrapper .movie_brief').children('h3').text().trim();
     var obj =JSON.parse(sessionStorage.getItem(cinN))
 
+    //获取用户id
+    var uid = $("#uid").val()
+
+    //获取排片sid
+    var sid = $("#sid").val()
+
     //能否购买写这里，不能购买直接return
-
-
+    $.post($("#PageContext").val()+"/sale/payTicket",{"price": price, "uid": uid, "sid": sid}, function (result) {
+        console.log(result)
+        if(result == 0){
+            alert("余额不足！请充值")
+            return;
+        }
+    })
 
     //放在最后面，前面有错误就return
     for(let i = 0;i<$('.seat_arr').children('.seatArr_seatItem').length;i++){
@@ -128,6 +137,6 @@ function toBuyToSub() {
     sessionStorage.setItem(cinN,JSON.stringify(obj));
     $('#seat_selection_dialog').modal('hide');
 
-
+    // window.location.href = $("#PageContext").val()+"/user/forwardIndex";
 
 }

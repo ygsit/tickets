@@ -99,4 +99,22 @@
         where
           hid = #{hid}
     </select>
+
+    <!--查找影厅大小-->
+    <select id="findCapacity" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select
+          h.capacity
+        from
+          hall h,
+          (select
+              cid
+            from
+              cinema
+            where
+              name = #{cname}) c
+        where
+          h.cid = c.cid
+        and
+          name = #{hname}
+    </select>
 </mapper>

@@ -52,4 +52,12 @@ public class HallServiceImpl implements HallService {
     public String findHallById(int parseInt) {
         return hallDao.findHallById(parseInt);
     }
+
+    @Override
+    public Integer findCapacity(String hname, String cname) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("hname", hname);
+        map.put("cname", cname);
+        return hallDao.findCapacity(map);
+    }
 }

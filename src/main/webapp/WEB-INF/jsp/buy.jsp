@@ -77,7 +77,7 @@
         <div class="cinemas_list">
             <h3>影院列表</h3>
             <c:forEach var="slice" items="${list}" varStatus="s">
-            <div class="cinemas_cell">
+                <div class="cinemas_cell">
                     <div class="cinema_info">
                         <a href="" class="cinema_name">
                             ${slice.cname}
@@ -87,24 +87,16 @@
                         </p>
                     </div>
                     <div class="buy_btn">
-                        <a data-toggle="modal" data-target="#seat_selection_dialog" onclick="show_seat_selection_dialog(event)">选座购票</a>
+                        <a data-toggle="modal" data-target="#seat_selection_dialog" onclick="show_seat_selection_dialog(event,'${slice.hname}','${slice.playTime}','${slice.capacity}')">选座购票</a>
                     </div>
                     <div class="price">
                         <span class="rmb">￥</span>
                         <span class="price_num">${slice.price}</span>
                         <span>起</span>
                     </div>
-            </div>
+                    <input type="hidden" id="sid" value="${slice.sid}">
+                </div>
             </c:forEach>
-            <!-- <div class="cinemas_cell"></div>
-            <div class="cinemas_cell"></div>
-            <div class="cinemas_cell"></div>
-            <div class="cinemas_cell"></div>
-            <div class="cinemas_cell"></div>
-            <div class="cinemas_cell"></div>
-            <div class="cinemas_cell"></div>
-            <div class="cinemas_cell"></div>
-            <div class="cinemas_cell"></div> -->
         </div>
     </div>
 
@@ -139,7 +131,7 @@
                         <div class="seatSection">
                         </div>
                     </div>
-                    <div class="toBuy" style="background-color: background-color: #f9f9f9;">
+                    <div class="toBuy" style="background-color: #f9f9f9;">
                             <div class="wra_cont_left">
                                 <div class="ava_shadow">
                                     <img class="ava" src="${pageContext.request.contextPath}/static/images/${movie.name}.jpg" alt="">
@@ -199,7 +191,9 @@
             </div>
         </div>
     </div>
-
+    <input id="uid" type="hidden" value="${uid}"/>
+    <%--用于js获取路径--%>
+    <input id="PageContext" type="hidden" value="${pageContext.request.contextPath}"/>
     <script src="${pageContext.request.contextPath}/static/js/seatSelection.js"></script>
 </body>
 

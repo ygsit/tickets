@@ -1,23 +1,31 @@
 package com.tickets.entity;
 
-/**
- * 排片Dto
- */
-public class SliceDto {
+public class OrderDto {
+
+    /**
+     * 订单id
+     */
+    private String oid;
+
+    /**
+     * 用户id
+     */
+    private Integer uid;
+
     /**
      * 排片id
      */
     private Integer sid;
 
     /**
-     *影院名
+     * 用户名
      */
-    private String cname;
+    private String uname;
 
     /**
-     * 影院地址
+     * 影院名
      */
-    private String address;
+    private String cname;
 
     /**
      * 影厅名
@@ -30,20 +38,25 @@ public class SliceDto {
     private String mname;
 
     /**
-     * 电影价格
-     */
-    private Double price;
-
-    /**
-     * 播出时间
+     * 播放时间
      */
     private String playTime;
 
-    /**
-     * 影厅大小
-     */
-    private Integer capacity;
+    public String getOid() {
+        return oid;
+    }
 
+    public void setOid(String oid) {
+        this.oid = oid;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
 
     public Integer getSid() {
         return sid;
@@ -51,6 +64,14 @@ public class SliceDto {
 
     public void setSid(Integer sid) {
         this.sid = sid;
+    }
+
+    public String getUname() {
+        return uname;
+    }
+
+    public void setUname(String uname) {
+        this.uname = uname;
     }
 
     public String getCname() {
@@ -77,35 +98,11 @@ public class SliceDto {
         this.mname = mname;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
     public String getPlayTime() {
         return playTime;
     }
 
     public void setPlayTime(String playTime) {
         this.playTime = playTime;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Integer getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
     }
 }

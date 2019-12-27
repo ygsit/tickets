@@ -1,6 +1,8 @@
 package com.tickets.service.impl;
 
+import com.tickets.Utils.UuidUtil;
 import com.tickets.dao.UserDao;
+import com.tickets.entity.Order;
 import com.tickets.entity.PageBean;
 import com.tickets.entity.User;
 import com.tickets.service.UserService;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -89,5 +92,27 @@ public class UserServiceImpl implements UserService {
         userDao.updateMoney(user);
     }
 
+    @Override
+    public Double findMoney(Integer uid) {
+        return userDao.findMoney(uid);
+    }
+
+    @Override
+    public void payTicket(Double price, Integer uid) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("price", price);
+        map.put("uid", uid);
+        userDao.payTicket(map);
+    }
+
+    @Override
+    public void addOrder(Integer uid, Integer sid) {
+        String uuid = UuidUtil.getUuid();
+        Order order = new Order();
+        order.setOid(uuid);
+        order.setUid(uid);
+        order.setSid(sid);
+        userDao.addOrder(order);
+    }
 
 }
