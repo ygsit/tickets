@@ -50,14 +50,11 @@ function show_seat_selection_dialog(el,hname,playTime,capacity){
 
     setMovieHall(Math.sqrt(hallSize), Math.sqrt(hallSize));
     setSeatStatus(JSON.parse(sessionStorage.getItem(cinemaName))[movieName].seatArr);
-    console.log(JSON.parse(sessionStorage.getItem(cinemaName))[movieName].seatArr)
     $('.seatSection .row .se').click(function () {
         //排除选中的不是数值的部分
         if (!this.id) return;
         //排除已售的座位
         if ($(this).children('i').hasClass('seat_sold')) return;
-
-
         if ($(this).children('i').hasClass('seat_selected')) {
             $(this).children('i').removeClass('seat_selected')
             removeArr(this.id)
@@ -120,23 +117,23 @@ function toBuyToSub() {
     var sid = $("#sid").val()
 
     //能否购买写这里，不能购买直接return
+    //能否购买
     $.post($("#PageContext").val()+"/sale/payTicket",{"price": price, "uid": uid, "sid": sid}, function (result) {
-        console.log(result)
         if(result == 0){
             alert("余额不足！请充值")
-            return;
         }
+        if(result==1){
+            for(let i = 0;i<$('.seat_arr').children('.seatArr_seatItem').length;i++){
+                var row = Number($($('.seat_arr').children('.seatArr_seatItem')[i]).text()[0])-1
+                var col = Number($($('.seat_arr').children('.seatArr_seatItem')[i]).text()[2])-1
+                obj[movN].seatArr[row][col] = 1;
+            }
+
+            sessionStorage.setItem(cinN,JSON.stringify(obj));
+            $('#seat_selection_dialog').modal('hide');
+            alert("购买成功!")
+        }
+
     })
-
-    //放在最后面，前面有错误就return
-    for(let i = 0;i<$('.seat_arr').children('.seatArr_seatItem').length;i++){
-        var row = Number($($('.seat_arr').children('.seatArr_seatItem')[i]).text()[0])-1
-        var col = Number($($('.seat_arr').children('.seatArr_seatItem')[i]).text()[2])-1
-        obj[movN].seatArr[row][col] = 1;
-    }
-    sessionStorage.setItem(cinN,JSON.stringify(obj));
-    $('#seat_selection_dialog').modal('hide');
-
-    // window.location.href = $("#PageContext").val()+"/user/forwardIndex";
 
 }

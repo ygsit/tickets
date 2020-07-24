@@ -33,7 +33,6 @@ function setMovieHall(row, col) {
  * @param {obj} data 
  */
 function setSeatStatus(arr){
-    console.log("ssss")
    for(let i in arr){
        for(let j in arr[i]){
            if(arr[i][j]==1){

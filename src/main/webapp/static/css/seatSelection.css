@@ -76,7 +76,12 @@
     color:#F56C6C!important;
 }
 #seat_selection_dialog .modal-dialog {
-    width: 730px;
+    width: 850px;
+}
+
+#seat_selection_dialog .modal-content{
+    overflow: hidden;
+    padding:10px 5px;
 }
 .toBuy{
     display: inline-block;

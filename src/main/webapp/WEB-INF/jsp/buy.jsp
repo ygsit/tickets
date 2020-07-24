@@ -86,7 +86,7 @@
                             地址：${slice.address}
                         </p>
                     </div>
-                    <div class="buy_btn">
+                    <div class="buy_btn" style="cursor: pointer">
                         <a data-toggle="modal" data-target="#seat_selection_dialog" onclick="show_seat_selection_dialog(event,'${slice.hname}','${slice.playTime}','${slice.capacity}')">选座购票</a>
                     </div>
                     <div class="price">
